@@ -5,6 +5,7 @@ class AudioAPI:
     def create(
         self,
         prompt: str,
+        style: str,
         title: str = "",
         tags: str = "",
         instrumental: bool = False,
@@ -12,6 +13,7 @@ class AudioAPI:
     ):
         payload = {
             "prompt": prompt,
+            "style": style,
             "title": title,
             "tags": tags,
             "make_instrumental": instrumental,
@@ -25,14 +27,16 @@ class AudioAPI:
 
     def remix(
         self,
-        song_id: str,
+        audio_url: str,
+        style: str,
         prompt: str = "",
         title: str = "",
         tags: str = "",
         wait: bool = True,
     ):
         payload = {
-            "song_id": song_id,
+            "audio_url": audio_url,
+            "style": style,
             "prompt": prompt,
             "title": title,
             "tags": tags,
